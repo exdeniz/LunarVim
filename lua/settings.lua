@@ -33,7 +33,7 @@ vim.o.writebackup = false -- This is recommended by coc
 vim.wo.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
 vim.o.updatetime = 300 -- Faster completion
 vim.o.timeoutlen = O.timeoutlen -- By default timeoutlen is 1000 ms
-vim.o.clipboard = "unnamedplus" -- Copy paste between vim and everything else
+vim.o.clipboard = "unnamed,unnamedplus" -- Copy paste between vim and everything else
 vim.g.nvim_tree_disable_netrw = O.nvim_tree_disable_netrw
 -- vim.o.guifont = "JetBrainsMono\\ Nerd\\ Font\\ Mono:h18"
 -- vim.o.guifont = "Hack\\ Nerd\\ Font\\ Mono"
@@ -41,3 +41,17 @@ vim.g.nvim_tree_disable_netrw = O.nvim_tree_disable_netrw
 vim.o.guifont = "FiraCode Nerd Font:h17"
 
 -- vim.o.guifont = "JetBrains\\ Mono\\ Regular\\ Nerd\\ Font\\ Complete"
+
+vim.g.clipboard = {
+           name = 'wayland-strip-carriage',
+           copy = {
+              ["+"] = 'wl-copy --foreground --type text/plain',
+              ["*"] = 'wl-copy --foreground --type text/plain --primary'
+            },
+           paste = {
+              ["+"] = 'wl-paste --no-newline | tr -d "\r"',
+              ["*"] = 'wl-paste --no-newline --primary | tr -d "\r"'
+           },
+           cache_enabled = 1
+}
+         

@@ -54,6 +54,9 @@ return require("packer").startup(
         use {"hrsh7th/vim-vsnip", opt = true}
         use {"rafamadriz/friendly-snippets", opt = true}
         use { "tzachar/compe-tabnine", run = "./install.sh", opt = true }
+        use {"mattn/emmet-vim", opt = true}
+        use {"FateXii/emmet-compe", opt = true}
+
         -- Treesitter
         use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
         use {"windwp/nvim-ts-autotag", opt = true}
@@ -95,6 +98,8 @@ return require("packer").startup(
         require_plugin("nvim-dap")
         require_plugin("nvim-compe")
         require_plugin("compe-tabnine")
+        require_plugin("emmet-vim")
+        require_plugin("emmet-compe")
         require_plugin("vim-vsnip")
         require_plugin("nvim-treesitter")
         require_plugin("nvim-ts-autotag")

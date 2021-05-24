@@ -30,7 +30,8 @@ require'compe'.setup {
         -- treesitter = {kind = "  "},
         emoji = {kind = " ﲃ  (Emoji)", filetypes={"markdown", "text"}},
         -- for emoji press : (idk if that in compe tho)
-        tabnine = {kind = " (TN)"} 
+        tabnine = {kind = " (TN)"},
+        emmet = true 
     }
 }
 

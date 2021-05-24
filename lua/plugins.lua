@@ -53,7 +53,7 @@ return require("packer").startup(
         use {"hrsh7th/nvim-compe", opt = true}
         use {"hrsh7th/vim-vsnip", opt = true}
         use {"rafamadriz/friendly-snippets", opt = true}
-
+        use { "tzachar/compe-tabnine", run = "./install.sh", opt = true }
         -- Treesitter
         use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
         use {"windwp/nvim-ts-autotag", opt = true}
@@ -94,6 +94,7 @@ return require("packer").startup(
         require_plugin("telescope.nvim")
         require_plugin("nvim-dap")
         require_plugin("nvim-compe")
+        require_plugin("compe-tabnine")
         require_plugin("vim-vsnip")
         require_plugin("nvim-treesitter")
         require_plugin("nvim-ts-autotag")

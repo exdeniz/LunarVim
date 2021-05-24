@@ -39,6 +39,7 @@ return require("packer").startup(
         use {"neovim/nvim-lspconfig", opt = true}
         use {"glepnir/lspsaga.nvim", opt = true}
         use {"kabouzeid/nvim-lspinstall", opt = true}
+        use {"folke/trouble.nvim", opt = true}
 
         -- Telescope
         use {"nvim-lua/popup.nvim", opt = true}
@@ -94,6 +95,7 @@ return require("packer").startup(
         require_plugin("nvim-lspconfig")
         require_plugin("lspsaga.nvim")
         require_plugin("nvim-lspinstall")
+        require_plugin("trouble.nvim")
         require_plugin("friendly-snippets")
         require_plugin("popup.nvim")
         require_plugin("plenary.nvim")

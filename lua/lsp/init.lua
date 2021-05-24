@@ -100,8 +100,20 @@ local function documentHighlight(client, bufnr)
 end
 local lsp_config = {}
 
+local function autoSave(client, bufnr)
+    if client.resolved_capabilities.document_formatting then
+      vim.api.nvim_exec([[
+        augroup LspAutoCommands
+          autocmd! * <buffer>
+          autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting() 
+        augroup END
+      ]], true)
+    end
+end
+
 function lsp_config.common_on_attach(client, bufnr)
     documentHighlight(client, bufnr)
+    autoSave(client, bufnr)
 end
 
 function lsp_config.tsserver_on_attach(client, bufnr)

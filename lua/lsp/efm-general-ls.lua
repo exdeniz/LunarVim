@@ -89,13 +89,34 @@ if O.tsserver.linter == 'eslint' then table.insert(tsserver_args, eslint) end
 
 local markdownPandocFormat = {formatCommand = 'pandoc -f markdown -t gfm -sp --tab-stop=2', formatStdin = true}
 
+-- local stylelint = {
+--   lintCommand = './node_modules/.bin/stylelint --stdin --stdin-filename ${INPUT} --formatter compact',
+--   lintIgnoreExitCode = true,
+--   lintStdin = true,
+--   lintFormats = {
+--     '%f: line %l, col %c, %tarning - %m',
+--     '%f: line %l, col %c, %trror - %m',
+--   },
+--   formatCommand = './node_modules/.bin/stylelint --fix --stdin --stdin-filename ${INPUT}',
+--   formatStdin = true,
+-- }
+
+local stylelint = {
+    lintStdin = true,
+    lintCommand = "./node_modules/.bin/stylelint --formatter=unix --stdin --stdin-filename=${INPUT}",
+    lintFormats = { "%f:%l:%c: %m [%tarning]", "%f:%l:%c: %m [%rror]" },
+    lintIgnoreExitCode = true,
+    formatCommand = "./node_modules/.bin/stylelint --fix --stdin --stdin-filename=${INPUT}",
+    formatStdin = true,
+}
+
 require"lspconfig".efm.setup {
     -- init_options = {initializationOptions},
     cmd = {DATA_PATH .. "/lspinstall/efm/efm-langserver"},
     init_options = {documentFormatting = true, codeAction = false},
     filetypes = {"lua", "python", "javascriptreact", "javascript", "typescript","typescriptreact","sh", "html", "css", "json", "yaml", "markdown", "vue"},
     settings = {
-        rootMarkers = {".git/"},
+        rootMarkers = { "package.json", ".git" },
         languages = {
             python = python_arguments,
             lua = lua_arguments,
@@ -105,7 +126,7 @@ require"lspconfig".efm.setup {
 			typescript = tsserver_args,
 			typescriptreact = tsserver_args,
             html = {prettier},
-            css = {prettier},
+            css = {stylelint, stylelint},
             json = {prettier},
             yaml = {prettier},
             markdown = {markdownPandocFormat}
@@ -115,6 +136,7 @@ require"lspconfig".efm.setup {
         }
     }
 }
+
 
 -- Also find way to toggle format on save
 -- maybe this will help: https://superuser.com/questions/439078/how-to-disable-autocmd-or-augroup-in-vim

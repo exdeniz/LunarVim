@@ -134,3 +134,5 @@ local mappings = {
 
 local wk = require("which-key")
 wk.register(mappings, opts)
+wk.register({ j = "which_key_ignore", k = "which_key_ignore" }, { mode = "i" })
+

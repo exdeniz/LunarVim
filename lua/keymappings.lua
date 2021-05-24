@@ -36,8 +36,12 @@ vim.api.nvim_set_keymap('v', '>', '>gv', {noremap = true, silent = true})
 -- I hate escape
 vim.api.nvim_set_keymap('i', 'jk', '<ESC>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('i', 'kj', '<ESC>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('i', 'jj', '<ESC>', {noremap = true, silent = true})
-
+vim.api.nvim_set_keymap('i', 'jj', '<ESC>:update<CR>', {noremap = true, silent = true})
+vim.cmd([[
+    map <ESC><ESC> :w<CR>
+    noremap! <C-Q>  <C-V>
+    map <C-s> :w<CR>
+]])
 -- Tab switch buffer
 vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprevious<CR>', {noremap = true, silent = true})

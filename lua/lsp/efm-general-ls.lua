@@ -74,7 +74,8 @@ local eslint = {
 
 local tsserver_args = {}
 
-if O.tsserver.formatter == 'prettier' then table.insert(tsserver_args, prettier) end
+-- if O.tsserver.formatter == 'prettier' then table.insert(tsserver_args, prettier) end
+if O.tsserver.formatter == 'eslint' then table.insert(tsserver_args, prettier) end
 
 if O.tsserver.linter == 'eslint' then table.insert(tsserver_args, eslint) end
 

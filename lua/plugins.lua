@@ -88,6 +88,9 @@ return require("packer").startup(
         -- Copy/Paste
         use {"svermeulen/vim-easyclip", opt = true}
 
+        -- JS
+        use {"karthikv/tradeship-vim"}
+
         require_plugin("nvim-lspconfig")
         require_plugin("lspsaga.nvim")
         require_plugin("nvim-lspinstall")
@@ -115,6 +118,7 @@ return require("packer").startup(
         require_plugin("galaxyline.nvim")
         require_plugin("barbar.nvim")
         require_plugin("vim-easyclip")
+        require_plugin("tradeship")
     end
 
 )

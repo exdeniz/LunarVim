@@ -20,6 +20,7 @@ require('lv-rnvimr')
 require('lv-which-key')
 require('lv-easyclip')
 require('lv-trouble')
+require('lv-colorizer')
 
 -- TODO is there a way to do this without vimscript
 vim.cmd('source ~/.config/nvim/vimscript/functions.vim')

@@ -5,5 +5,10 @@ require'lspconfig'.cssls.setup {
         "--stdio"
     },
 
-    on_attach = require'lsp'.common_on_attach
+    on_attach = require'lsp'.common_on_attach,
+    settings = {
+      css = { validate = false},
+      scss = { validate = true },
+      less = { validate = true }
+     };
 }

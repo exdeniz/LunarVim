@@ -99,34 +99,26 @@ local markdownPandocFormat = {formatCommand = 'pandoc -f markdown -t gfm -sp --t
 --   },
 --   formatCommand = './node_modules/.bin/stylelint --fix --stdin --stdin-filename ${INPUT}',
 --   formatStdin = true,
+--   formatIgnoreExitCode = true
 -- }
-
-local stylelint = {
-    lintStdin = true,
-    lintCommand = "./node_modules/.bin/stylelint --formatter=unix --stdin --stdin-filename=${INPUT}",
-    lintFormats = { "%f:%l:%c: %m [%tarning]", "%f:%l:%c: %m [%rror]" },
-    lintIgnoreExitCode = true,
-    formatCommand = "./node_modules/.bin/stylelint --fix --stdin --stdin-filename=${INPUT}",
-    formatStdin = true,
-}
+-- 
 
 require"lspconfig".efm.setup {
     -- init_options = {initializationOptions},
     cmd = {DATA_PATH .. "/lspinstall/efm/efm-langserver"},
     init_options = {documentFormatting = true, codeAction = false},
-    filetypes = {"lua", "python", "javascriptreact", "javascript", "typescript","typescriptreact","sh", "html", "css", "json", "yaml", "markdown", "vue"},
+    filetypes = {"python", "javascriptreact", "javascript", "typescript","typescriptreact","sh", "html", "css", "json", "yaml", "markdown", "vue"},
     settings = {
-        rootMarkers = { "package.json", ".git" },
+        rootMarkers = { ".git" },
         languages = {
             python = python_arguments,
-            lua = lua_arguments,
+            -- lua = lua_arguments,
             sh = sh_arguments,
             javascript = tsserver_args,
             javascriptreact = tsserver_args,
 			typescript = tsserver_args,
 			typescriptreact = tsserver_args,
             html = {prettier},
-            css = {stylelint, stylelint},
             json = {prettier},
             yaml = {prettier},
             markdown = {markdownPandocFormat}

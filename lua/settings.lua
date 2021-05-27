@@ -42,17 +42,17 @@ vim.o.guifont = "FiraCode Nerd Font:h17"
 
 -- vim.o.guifont = "JetBrains\\ Mono\\ Regular\\ Nerd\\ Font\\ Complete"
 
-vim.g.clipboard = {
-           name = 'wayland-strip-carriage',
-           copy = {
-              ["+"] = 'wl-copy --foreground --type text/plain',
-              ["*"] = 'wl-copy --foreground --type text/plain --primary'
-            },
-           paste = {
-              ["+"] = 'wl-paste --no-newline | tr -d "\r"',
-              ["*"] = 'wl-paste --no-newline --primary | tr -d "\r"'
-           },
-           cache_enabled = 1
-}
-
+-- vim.g.clipboard = {
+--            name = 'wayland-strip-carriage',
+--            copy = {
+--               ["+"] = 'wl-copy --foreground --type text/plain',
+--               ["*"] = 'wl-copy --foreground --type text/plain --primary'
+--             },
+--            paste = {
+--               ["+"] = 'wl-paste --no-newline | tr -d "\r"',
+--               ["*"] = 'wl-paste --no-newline --primary | tr -d "\r"'
+--            },
+--            cache_enabled = 1
+-- }
+-- 
 

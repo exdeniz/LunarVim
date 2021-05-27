@@ -24,4 +24,26 @@ require'lspinstall/servers'.kotlin = vim.tbl_extend('error', config, {
     uninstall_script = nil -- can be omitted
 })
 
+require'lspinstall/servers'.stylelint_lsp = vim.tbl_extend('error', config, {
+default_config = {
+    cmd = {'stylelint-lsp', '--stdio'},
+    filetypes = {
+      'css',
+      'less',
+      'scss',
+      'sugarss',
+      'vue',
+      'wxss',
+      'javascript',
+      'javascriptreact',
+      'typescript',
+      'typescriptreact'
+    };
+    root_dir = util.root_pattern('.stylelintrc', 'package.json');
+    settings = {};
+  },
+  uninstall_script = nil -- can be omitted
+})
+
+
 require'lspinstall'.setup()

@@ -89,9 +89,14 @@ return require("packer").startup(
 
         -- Copy/Paste
         use {"svermeulen/vim-easyclip", opt = true}
+        use {"mg979/vim-visual-multi", opt = true}
 
         -- JS
         use {"karthikv/tradeship-vim"}
+
+        -- Lang
+        use {"digitaltoad/vim-pug", opt = true}
+
 
         require_plugin("nvim-lspconfig")
         require_plugin("lspsaga.nvim")
@@ -123,6 +128,8 @@ return require("packer").startup(
         require_plugin("barbar.nvim")
         require_plugin("vim-easyclip")
         require_plugin("tradeship")
+        require_plugin("vim-pug")
+        require_plugin("vim-visual-multi")
     end
 
 )

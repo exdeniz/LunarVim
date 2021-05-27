@@ -64,7 +64,7 @@ O = {
 		diagnostics = {virtualtext = {spacing = 0, prefix = ""}, signs = true, underline = true},
 		filetypes = {'rb', 'erb', 'rakefile'}
 	},
-    -- css = {formatter = '', autoformat = false, virtual_text = true},
+    css = {autoformat = true, virtual_text = true},
     -- json = {formatter = '', autoformat = false, virtual_text = true}
 
 	dashboard = {
